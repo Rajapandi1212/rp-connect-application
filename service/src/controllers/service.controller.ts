@@ -23,17 +23,14 @@ export const post = async (request: Request, response: Response) => {
   // Identify the type of resource in order to redirect
   // to the correct controller
   switch (resource.typeId) {
-    case 'cart':
-        const data = await cartController(action, resource);
+    case 'cart': {
+      const data = await cartController(action, resource);
 
-        if (data && data.statusCode === 200) {
-          apiSuccess(200, data.actions, response);
-          break;
-        }
-        throw new CustomError(
-          data ? data.statusCode : 400,
-          JSON.stringify(data)
-        );    
+      if (data && data.statusCode === 200) {
+        return apiSuccess(200, data.actions, response);
+      }
+      throw new CustomError(data ? data.statusCode : 400, JSON.stringify(data));
+    }
     case 'payment':
       break;
 

@@ -24,13 +24,3 @@ deployAs:
         - key: CTP_SCOPE
           description: commercetools Composable Commerce client scope
           required: true
-inheritAs:
-  configuration:
-    securedConfiguration:
-      - key: GLOBAL_SECURED_CONFIGURATION
-        description: This secured configuration will configuration will be applied to all applications
-        required: true
-    standardConfiguration:
-      - key: GLOBAL_STANDARD_CONFIGURATION
-        description: This standard configuration will configuration will be applied to all applications
-        required: true

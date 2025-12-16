@@ -44,7 +44,7 @@ export async function createCartUpdateExtension(
         triggers: [
           {
             resourceTypeId: 'cart',
-            actions: ['Update'],
+            actions: ['Update', 'Create'],
           },
         ],
       },
