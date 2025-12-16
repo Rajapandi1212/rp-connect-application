@@ -27,7 +27,7 @@ export const post = async (request: Request, response: Response) => {
       const data = await cartController(action, resource);
 
       if (data && data.statusCode === 200) {
-        return apiSuccess(200, data.actions, response);
+        return apiSuccess(200, data.actions || [], response);
       }
       throw new CustomError(data ? data.statusCode : 400, JSON.stringify(data));
     }
